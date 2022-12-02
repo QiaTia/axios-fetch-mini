@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": false,
+    "target": "ESNext",
+    "declaration": true, // 将生成.d.ts文件
+    "outDir": "./dist",
+    "lib": ["ESNext", "DOM"]
+  },
+  "exclude": [
+    "./dist"
+  ]
+}

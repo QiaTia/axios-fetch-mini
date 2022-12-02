@@ -37,7 +37,7 @@ class AxiosFetch<R> {
     opt.custom = { ...config.custom, ...(opt.custom || {}) };
     return opt;
   }
-  create(instanceConfig?: Partial<RequestProps>) {
+  create(instanceConfig?: RequestProps) {
     return new AxiosFetch(instanceConfig);
   }
   request<T>(
@@ -81,6 +81,7 @@ class AxiosFetch<R> {
     return this.request<T>({ ...opt, data, url, method: 'DOWN' });
   }
 }
+
 const axios = new AxiosFetch<API.RequestProps>();
 // @ts-ignore
 if(window && !window.axios) window.axios = axios;

@@ -1,6 +1,7 @@
 import InterceptorManager from './InterceptorManager';
+import './typings';
 export type RequestProps = Partial<API.RequestProps>;
-export default class AxiosFetch<R> {
+declare class AxiosFetch<R> {
     defaults: RequestProps;
     interceptors: {
         [key in 'request' | 'response']: InterceptorManager;
@@ -15,3 +16,5 @@ export default class AxiosFetch<R> {
     delete<T>(url: string, data?: Record<string, any>, opt?: Partial<RequestProps>): Promise<API.RequestResult<T, R>>;
     down<T>(url: string, data?: Record<string, any>, opt?: Partial<RequestProps>): Promise<API.RequestResult<T, R>>;
 }
+declare const axios: AxiosFetch<API.RequestProps>;
+export default axios;

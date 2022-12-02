@@ -1,9 +1,10 @@
 import InterceptorManager from './InterceptorManager';
 import dispatchRequest from './request';
+import './typings';
 
 export type RequestProps = Partial<API.RequestProps>;
 
-export default class AxiosFetch<R> {
+class AxiosFetch<R> {
   defaults: RequestProps = {
     url: '',
     baseUrl: '',
@@ -80,6 +81,10 @@ export default class AxiosFetch<R> {
     return this.request<T>({ ...opt, data, url, method: 'DOWN' });
   }
 }
-
+const axios = new AxiosFetch<API.RequestProps>();
 // @ts-ignore
-if(window && !window.axios) window.axios = new AxiosFetch();
+if(window && !window.axios) window.axios = axios;
+
+export default axios;
+// // @ts-ognore
+// if(module.exports) module.exports = axios

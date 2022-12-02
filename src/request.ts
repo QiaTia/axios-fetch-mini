@@ -1,9 +1,10 @@
 import { posUrl, stringify } from './utils';
+import './typings';
 
-interface ConfigProp extends RequestInit {
+interface ConfigProp extends API.RequestInit {
   baseUrl: string, url: string, params: Record<string, any>
 }
-interface ResponseProp extends Response {
+interface ResponseProp extends API.Response {
   data?: any, 
   config?: ConfigProp 
 }
@@ -17,7 +18,8 @@ export default async function (config: ConfigProp ): Promise<Required<ResponsePr
     const params = stringify(config.params as Record<string, string>);
     newConfig.url += newConfig.url.indexOf('?') === -1 ? `?${params}` : `&${params}`;
   }
-  const response: ResponseProp = await fetch(newConfig.url, newConfig);
+  // @ts-ignore
+  const response: ResponseProp = await window.fetch(newConfig.url, newConfig);
   const ContentType = response.headers.get('content-type');
   response.config = config;
   if(ContentType?.includes('json')) 

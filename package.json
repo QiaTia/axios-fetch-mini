@@ -1,19 +1,22 @@
 {
   "name": "axios-fetch-mini",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "axios fetch 实现",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "homepage": "https://github.com/qiatia/m3u8",
-  "bugs": "https://github.com/qiatia/m3u8/issues",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/qiatia/axios-fetch-mini",
+  "bugs": "https://github.com/qiatia/axios-fetch-mini/issues",
   "repository": {
     "url": "git@github.com:QiaTia/axios-fetch-mini.git",
     "type": "git"
   },
   "scripts": {
     "test": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production --config webpack.config",
-    "publish": "npm publish"
+    "build": "rollup -c"
   },
   "keywords": [
     "axios",
@@ -25,10 +28,10 @@
   "author": "QiaTia",
   "license": "MIT",
   "devDependencies": {
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.3",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.11.1"
+    "@rollup/plugin-commonjs": "^23.0.3",
+    "rollup": "^3.5.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^4.9.3"
   }
 }

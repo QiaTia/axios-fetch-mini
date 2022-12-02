@@ -14,7 +14,7 @@
 		const http = axios.create({});
 		console.log(http);
 		http.interceptors.response.use(({ data })=> data, e => e);
-		http.get('https://qiatia.cn/tia/dc/random?num=1')
+		http.get('https://qiatia.cn/tia/dc/random', { num: 1 })
 			.then(({ data })=>{
 				console.log(data);
 				$app.innerHTML = `<p>${ JSON.stringify(data.data[0]) }</p>`

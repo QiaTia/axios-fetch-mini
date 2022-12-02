@@ -1,9 +1,15 @@
 {
   "name": "axios-fetch-mini",
   "version": "1.0.0",
-  "description": "axios fetch实现",
+  "description": "axios fetch 实现",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/qiatia/m3u8",
+  "bugs": "https://github.com/qiatia/m3u8/issues",
+  "repository": {
+    "url": "git@github.com:QiaTia/axios-fetch-mini.git",
+    "type": "git"
+  },
   "scripts": {
     "test": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production --config webpack.config",

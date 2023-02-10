@@ -1,6 +1,6 @@
 {
   "name": "axios-fetch-mini",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "axios fetch 实现",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

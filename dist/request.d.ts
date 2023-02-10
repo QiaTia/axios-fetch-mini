@@ -1,10 +1,10 @@
-import './typings';
+import type * as API from './typings';
 interface ConfigProp extends API.RequestInit {
     baseUrl: string;
     url: string;
     params: Record<string, any>;
 }
-interface ResponseProp extends API.Response {
+export interface ResponseProp extends API.Response {
     data?: any;
     config?: ConfigProp;
 }

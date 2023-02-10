@@ -1,9 +1,9 @@
-type CallBack = (config: any) => any;
+type CallBack<T = any> = (config: T) => any;
 
 /** InterceptorManager */
-export default class intercept {
+export default class intercept<T = any, F = any> {
   private handlers: { rejected?: CallBack; fulfilled: CallBack }[] = [];
-  public use(fulfilled: CallBack, rejected?: CallBack) {
+  public use(fulfilled: CallBack<T>, rejected?: CallBack<F>) {
     this.handlers.push({ fulfilled, rejected });
     return this.handlers.length - 1;
   }

@@ -1,6 +1,6 @@
 import InterceptorManager from './InterceptorManager';
-import dispatchRequest from './request';
-import './typings';
+import dispatchRequest, { ResponseProp } from './request';
+import type * as API from './typings';
 
 export type RequestProps = Partial<API.RequestProps>;
 
@@ -17,7 +17,10 @@ class AxiosFetch<R> {
     custom: {},
     timeout: 6e4,
   };
-  interceptors: { [key in 'request' | 'response']: InterceptorManager };
+  interceptors: { 
+    request: InterceptorManager<RequestProps>,
+    response: InterceptorManager<ResponseProp>
+  };
   constructor(instanceConfig: RequestProps = {})  {
     this.defaults = { ...this.defaults, ...instanceConfig };
     this.interceptors = {
